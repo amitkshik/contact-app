@@ -28,7 +28,7 @@ export class ContactService {
 
   // insert new contact details
   addContact(url: string, contact: IContact): Observable<any> {
-    return this.http.post(url, JSON.stringify(contact), httpOptions)
+    return this.http.post(url, contact, { responseType : 'json' })
       .pipe(
         catchError(this.handleError)
       );

@@ -11,6 +11,13 @@ import { ContactService } from '../services/contact.service';
 import { DBOperation } from '../shared/DBOperation';
 import { Global } from '../shared/Global';
 
+
+export  enum personTypes {
+  Supplier = 1,
+  Customer = 0
+
+}
+
 @Component({
   selector: 'app-contactform',
   templateUrl: './contactform.component.html',
@@ -27,7 +34,7 @@ export class ContactformComponent implements OnInit {
   listFilter: string;
   selectedOption: string;
   // contact: IContact;
-
+  personTypes: typeof personTypes = personTypes;
   personType = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -43,8 +50,8 @@ export class ContactformComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
       telephone: ['', [Validators.required]],
-      birth: ['', [Validators.required]],
-      personType: ['', [Validators.required]]
+      birthday: ['', [Validators.required]],
+      personTypeId: ['', [Validators.required]]
     });
 
     this.personType = Global.PersonType;
@@ -104,7 +111,7 @@ export class ContactformComponent implements OnInit {
       'email': 'Invalid email format.',
       'required': 'Email is required.'
     },
-    'personType': {
+    'personTypeId': {
       'required': 'personType is required.'
     },
     'telephone': {
@@ -117,6 +124,7 @@ export class ContactformComponent implements OnInit {
   };
   onSubmit(formData: any) {
     const contactData = this.mapDateData(formData.value);
+    contactData.personTypeId = Global.PersonType.findIndex(t => t === contactData.personTypeId.toString());
     switch (this.data.dbops) {
       case DBOperation.create:
         this._contactService.addContact(Global.BASE_USER_ENDPOINT + 'addContact', contactData).subscribe(
@@ -173,4 +181,5 @@ export class ContactformComponent implements OnInit {
     contact.birthday = new Date(contact.birthday).toISOString();
     return contact;
   }
+
 }

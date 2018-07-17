@@ -28,7 +28,7 @@
       <!-- PersonType Column -->
       <ng-container matColumnDef="personType">
         <th mat-header-cell *matHeaderCellDef> Person Type </th>
-        <td mat-cell *matCellDef="let element"> {{element.PersonType}} </td>
+        <td mat-cell *matCellDef="let element"> {{personTypes[element.personTypeId]}} </td>
       </ng-container>
 
       <!-- Birth Column -->

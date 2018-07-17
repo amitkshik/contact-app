@@ -9,7 +9,7 @@ namespace contact_app.Models
         {
         }
 
-        
+        public DbSet<Contact> Contact { get; set; }
          public DbSet<Person> Person { get; set; }
           public DbSet<Customer> Customer { get; set; }
            public DbSet<Supplier> Supplier { get; set; }
@@ -29,12 +29,12 @@ namespace contact_app.Models
         .WithOne(ad => ad.Person);
 
         modelBuilder.Entity<Customer>()
-        .ToTable("Customer");
+        .ToTable("Customers");
 
         modelBuilder.Entity<Customer>().HasKey(p => p.Id);
 
         modelBuilder.Entity<Supplier>()
-        .ToTable("Supplier");
+        .ToTable("Suppliers");
 
         modelBuilder.Entity<Supplier>().HasKey(p => p.Id);
     }

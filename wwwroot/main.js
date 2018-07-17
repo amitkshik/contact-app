@@ -270,7 +270,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form  (ngSubmit)=\"onSubmit(contactFrm)\"  [formGroup]=\"contactFrm\">\n  <h2>{{data.modalTitle}}</h2>\n  \n  <div>\n      <mat-form-field appearance=\"outline\">\n      <mat-label>Name</mat-label>\n      <input matInput placeholder=\"Name\" formControlName=\"name\">\n      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->\n      <!-- <mat-hint>Hint</mat-hint> -->\n      <mat-error *ngIf=\"formErrors.name\">\n        {{ formErrors.name }}\n      </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <mat-label>Email</mat-label>\n      <input type=\"email\" matInput placeholder=\"email\" formControlName=\"email\">\n      <mat-error *ngIf=\"formErrors.email\">\n        {{ formErrors.email }}\n      </mat-error>\n    </mat-form-field>\n  \n  </div>\n  <p>\n      <mat-radio-group class=\"contact-radio-group\" formControlName=\"gender\" >\n        <mat-radio-button class=\"contact-radio-button\" *ngFor=\"let gndr of genders\" [value]=\"gndr.id\">\n          {{ gndr.name }}\n        </mat-radio-button>\n      </mat-radio-group>\n      <mat-error *ngIf=\"formErrors.gender\">\n        {{ formErrors.gender }}\n      </mat-error>\n  </p>\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a birthday\" formControlName=\"birth\">\n      <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n      <mat-datepicker #picker></mat-datepicker>\n    \n    <mat-error *ngIf=\"formErrors.birth \">\n      {{ formErrors.birth }}\n    </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <mat-select placeholder=\"Select a Technology\" formControlName=\"techno\">\n        <mat-option>-- None --</mat-option>\n        <mat-option *ngFor=\"let techno  of technologies\" [value]=\"techno\">\n          {{ techno }}\n        </mat-option>\n      </mat-select>\n      <mat-error *ngIf=\"formErrors.techno \">\n        {{ formErrors.techno }}\n      </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <textarea matInput placeholder=\"Message...\" formControlName=\"message\"></textarea>\n      <mat-error *ngIf=\"formErrors.message \">\n        {{ formErrors.message }}\n      </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n  \n    <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"dialogRef.close()\">Cancel</button>&nbsp;\n    <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"contactFrm.invalid\">{{data.modalBtnTitle}}</button>\n  </div>\n  \n  </form>"
+module.exports = "<form  (ngSubmit)=\"onSubmit(contactFrm)\"  [formGroup]=\"contactFrm\">\n  <h2>{{data.modalTitle}}</h2>\n  \n  <div>\n      <mat-form-field appearance=\"outline\">\n      <mat-label>First Name</mat-label>\n      <input matInput placeholder=\"First Name\" formControlName=\"firstName\">\n      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->\n      <!-- <mat-hint>Hint</mat-hint> -->\n      <mat-error *ngIf=\"formErrors.firstname\">\n        {{ formErrors.firstname }}\n      </mat-error>\n    </mat-form-field>\n  </div>\n\n  <div>\n    <mat-form-field appearance=\"outline\">\n    <mat-label>Last Name</mat-label>\n    <input matInput placeholder=\"Last Name\" formControlName=\"lastName\">\n    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->\n    <!-- <mat-hint>Hint</mat-hint> -->\n    <mat-error *ngIf=\"formErrors.lastName\">\n      {{ formErrors.lastName }}\n    </mat-error>\n  </mat-form-field>\n</div>\n\n\n\n\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <mat-label>Email</mat-label>\n      <input type=\"email\" matInput placeholder=\"email21313654\" formControlName=\"email\">\n      <mat-error *ngIf=\"formErrors.email\">\n        {{ formErrors.email }}\n      </mat-error>\n    </mat-form-field>\n  \n  </div>\n \n  <div>\n    <mat-form-field appearance=\"outline\">\n      <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a birthday\" formControlName=\"birthday\">\n      <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n      <mat-datepicker #picker></mat-datepicker>\n    \n    <mat-error *ngIf=\"formErrors.birth \">\n      {{ formErrors.birth }}\n    </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <mat-select placeholder=\"Person Type\" formControlName=\"personTypeId\">\n        <mat-option>-- None --</mat-option>\n        <mat-option *ngFor=\"let techno  of personType\" [value]=\"techno\">\n          {{ techno }}\n        </mat-option>\n      </mat-select>\n      <mat-error *ngIf=\"formErrors.personTypeId \">\n        {{ formErrors.personTypeId }}\n      </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n    <mat-form-field appearance=\"outline\">\n      <textarea matInput placeholder=\"Telephone\" formControlName=\"telephone\"></textarea>\n      <mat-error *ngIf=\"formErrors.telephone \">\n        {{ formErrors.telephone }}\n      </mat-error>\n    </mat-form-field>\n  </div>\n  <div>\n  \n    <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"dialogRef.close()\">Cancel</button>&nbsp;\n    <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"contactFrm.invalid\">{{data.modalBtnTitle}}</button>\n  </div>\n  \n  </form>"
 
 /***/ }),
 
@@ -278,11 +278,12 @@ module.exports = "<form  (ngSubmit)=\"onSubmit(contactFrm)\"  [formGroup]=\"cont
 /*!******************************************************!*\
   !*** ./src/app/contactform/contactform.component.ts ***!
   \******************************************************/
-/*! exports provided: ContactformComponent */
+/*! exports provided: personTypes, ContactformComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "personTypes", function() { return personTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactformComponent", function() { return ContactformComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
@@ -308,6 +309,11 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
+var personTypes;
+(function (personTypes) {
+    personTypes[personTypes["Supplier"] = 1] = "Supplier";
+    personTypes[personTypes["Customer"] = 0] = "Customer";
+})(personTypes || (personTypes = {}));
 var ContactformComponent = /** @class */ (function () {
     function ContactformComponent(data, fb, _contactService, dialogRef) {
         this.data = data;
@@ -316,22 +322,26 @@ var ContactformComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.indLoading = false;
         // contact: IContact;
-        this.genders = [];
-        this.technologies = [];
+        this.personTypes = personTypes;
+        this.personType = [];
         // form errors model
         // tslint:disable-next-line:member-ordering
         this.formErrors = {
-            'name': '',
+            'firstname': '',
+            'lastname': '',
             'email': '',
-            'gender': '',
+            'personType': '',
             'birth': '',
-            'techno': '',
-            'message': ''
+            'telephone': ''
         };
         // custom valdiation messages
         // tslint:disable-next-line:member-ordering
         this.validationMessages = {
-            'name': {
+            'firstname': {
+                'maxlength': 'Name cannot be more than 50 characters long.',
+                'required': 'Name is required.'
+            },
+            'lastname': {
                 'maxlength': 'Name cannot be more than 50 characters long.',
                 'required': 'Name is required.'
             },
@@ -339,17 +349,14 @@ var ContactformComponent = /** @class */ (function () {
                 'email': 'Invalid email format.',
                 'required': 'Email is required.'
             },
-            'gender': {
-                'required': 'Gender is required.'
+            'personTypeId': {
+                'required': 'personType is required.'
             },
-            'techno': {
-                'required': 'Technology is required.'
+            'telephone': {
+                'required': 'telephone is required.'
             },
             'birth': {
                 'required': 'Birthday is required.'
-            },
-            'message': {
-                'required': 'message is required.'
             }
         };
     }
@@ -358,15 +365,14 @@ var ContactformComponent = /** @class */ (function () {
         // built contact form
         this.contactFrm = this.fb.group({
             id: [''],
-            name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(50)]],
+            firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(50)]],
+            lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(50)]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
-            gender: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-            birth: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-            techno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-            message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]]
+            telephone: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            birthday: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            personTypeId: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]]
         });
-        this.genders = _shared_Global__WEBPACK_IMPORTED_MODULE_5__["Global"].genders;
-        this.technologies = _shared_Global__WEBPACK_IMPORTED_MODULE_5__["Global"].technologies;
+        this.personType = _shared_Global__WEBPACK_IMPORTED_MODULE_5__["Global"].PersonType;
         // subscribe on value changed event of form to show validation message
         this.contactFrm.valueChanges.subscribe(function (data) { return _this.onValueChanged(data); });
         this.onValueChanged();
@@ -402,6 +408,7 @@ var ContactformComponent = /** @class */ (function () {
     ContactformComponent.prototype.onSubmit = function (formData) {
         var _this = this;
         var contactData = this.mapDateData(formData.value);
+        contactData.personTypeId = _shared_Global__WEBPACK_IMPORTED_MODULE_5__["Global"].PersonType.findIndex(function (t) { return t === contactData.personTypeId.toString(); });
         switch (this.data.dbops) {
             case _shared_DBOperation__WEBPACK_IMPORTED_MODULE_4__["DBOperation"].create:
                 this._contactService.addContact(_shared_Global__WEBPACK_IMPORTED_MODULE_5__["Global"].BASE_USER_ENDPOINT + 'addContact', contactData).subscribe(function (data) {
@@ -448,7 +455,7 @@ var ContactformComponent = /** @class */ (function () {
         isEnable ? this.contactFrm.enable() : this.contactFrm.disable();
     };
     ContactformComponent.prototype.mapDateData = function (contact) {
-        contact.birth = new Date(contact.birth).toISOString();
+        contact.birthday = new Date(contact.birthday).toISOString();
         return contact;
     };
     ContactformComponent = __decorate([
@@ -487,7 +494,7 @@ module.exports = "/* .contactlist{\r\n  text-align: center;\r\n} */\r\n\r\n.spin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"spinner\" *ngIf=\"loadingState; else contactlist\">\n<mat-spinner></mat-spinner>\n</div>\n<ng-template class=\"contactlist\" #contactlist>\n  <h2 style=\"text-align: center;\">Contact List</h2>\n  <div class=\"contactlist-container mat-elevation-z8\">\n    <div><button title=\"Create\" mat-raised-button color=\"accent\" (click)=\"addContact()\">Create</button></div>\n    <table mat-table #table [dataSource]=\"dataSource\">\n\n      <!-- Id Column -->\n      <!-- <ng-container matColumnDef=\"id\">\n      <th mat-header-cell *matHeaderCellDef> Id </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n    </ng-container> -->\n\n      <!-- Name Column -->\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef> Name </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n      </ng-container>\n\n      <!-- Email Column -->\n      <ng-container matColumnDef=\"email\">\n        <th mat-header-cell *matHeaderCellDef> Email </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n      </ng-container>\n\n      <!-- Gender Column -->\n      <ng-container matColumnDef=\"gender\">\n        <th mat-header-cell *matHeaderCellDef> Gender </th>\n        <td mat-cell *matCellDef=\"let element\"> {{getGender(element.gender)}} </td>\n      </ng-container>\n\n      <!-- Birth Column -->\n      <ng-container matColumnDef=\"birth\">\n        <th mat-header-cell *matHeaderCellDef> Birthday </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.birth | date: 'MM-dd-yyyy' }} </td>\n      </ng-container>\n\n      <!-- Technology Column -->\n      <ng-container matColumnDef=\"techno\">\n        <th mat-header-cell *matHeaderCellDef> Technology </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.techno}} </td>\n      </ng-container>\n\n      <!-- Message Column -->\n      <ng-container matColumnDef=\"message\">\n        <th mat-header-cell *matHeaderCellDef> Message </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.message}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef> Action </th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button title=\"Edit\" mat-raised-button color=\"primary\" (click)=\"editContact(element.id)\">Edit</button>\n          <button title=\"Delete\" mat-raised-button color=\"warn\" (click)=\"deleteContact(element.id)\">Delete</button>\n        </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n\n  </div>\n</ng-template>\n"
+module.exports = "<div class=\"spinner\" *ngIf=\"loadingState; else contactlist\">\n<mat-spinner></mat-spinner>\n</div>\n<ng-template class=\"contactlist\" #contactlist>\n  <h2 style=\"text-align: center;\">Contact List</h2>\n  <div class=\"contactlist-container mat-elevation-z8\">\n    <div><button title=\"Create\" mat-raised-button color=\"accent\" (click)=\"addContact()\">Create</button></div>\n    <table mat-table #table [dataSource]=\"dataSource\">\n\n      <!-- Id Column -->\n      <!-- <ng-container matColumnDef=\"id\">\n      <th mat-header-cell *matHeaderCellDef> Id </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n    </ng-container> -->\n\n      <!-- Name Column -->\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef> Name </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} {{element.lastName}}</td>\n      </ng-container>\n\n      <!-- Email Column -->\n      <ng-container matColumnDef=\"email\">\n        <th mat-header-cell *matHeaderCellDef> Email </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n      </ng-container>\n\n      <!-- PersonType Column -->\n      <ng-container matColumnDef=\"personType\">\n        <th mat-header-cell *matHeaderCellDef> Person Type </th>\n        <td mat-cell *matCellDef=\"let element\"> {{personTypes[element.personTypeId]}} </td>\n      </ng-container>\n\n      <!-- Birth Column -->\n      <ng-container matColumnDef=\"birth\">\n        <th mat-header-cell *matHeaderCellDef> Birthday </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.birthday | date: 'MM-dd-yyyy' }} </td>\n      </ng-container>\n\n      <!-- Telephone Column -->\n      <ng-container matColumnDef=\"telephone\">\n        <th mat-header-cell *matHeaderCellDef> Telephone </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.telephone}} </td>\n      </ng-container>\n\n       \n\n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef> Action </th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button title=\"Edit\" mat-raised-button color=\"primary\" (click)=\"editContact(element.id)\">Edit</button>\n          <button title=\"Delete\" mat-raised-button color=\"warn\" (click)=\"deleteContact(element.id)\">Delete</button>\n        </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n\n  </div>\n</ng-template>\n"
 
 /***/ }),
 
@@ -495,11 +502,12 @@ module.exports = "<div class=\"spinner\" *ngIf=\"loadingState; else contactlist\
 /*!******************************************************!*\
   !*** ./src/app/contactlist/contactlist.component.ts ***!
   \******************************************************/
-/*! exports provided: ContactlistComponent */
+/*! exports provided: personTypes, ContactlistComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "personTypes", function() { return personTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactlistComponent", function() { return ContactlistComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
@@ -523,13 +531,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+var personTypes;
+(function (personTypes) {
+    personTypes[personTypes["Supplier"] = 1] = "Supplier";
+    personTypes[personTypes["Customer"] = 0] = "Customer";
+})(personTypes || (personTypes = {}));
 var ContactlistComponent = /** @class */ (function () {
     function ContactlistComponent(snackBar, _contactService, dialog) {
         this.snackBar = snackBar;
         this._contactService = _contactService;
         this.dialog = dialog;
+        this.personTypes = personTypes;
         // set columns that will need to show in listing table
-        this.displayedColumns = ['name', 'email', 'gender', 'birth', 'techno', 'message', 'action'];
+        this.displayedColumns = ['name', 'email', 'personType', 'birth', 'telephone', 'action'];
         // setting up datasource for material table
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"]();
     }
@@ -575,9 +589,6 @@ var ContactlistComponent = /** @class */ (function () {
             _this.loadingState = false;
             _this.dataSource.data = contacts;
         });
-    };
-    ContactlistComponent.prototype.getGender = function (gender) {
-        return _shared_Global__WEBPACK_IMPORTED_MODULE_5__["Global"].genders.filter(function (ele) { return ele.id === gender; }).map(function (ele) { return ele.name; })[0];
     };
     ContactlistComponent.prototype.addContact = function () {
         this.dbops = _shared_DBOperation__WEBPACK_IMPORTED_MODULE_4__["DBOperation"].create;
@@ -663,7 +674,7 @@ var ContactService = /** @class */ (function () {
     };
     // insert new contact details
     ContactService.prototype.addContact = function (url, contact) {
-        return this.http.post(url, JSON.stringify(contact), httpOptions)
+        return this.http.post(url, contact, { responseType: 'json' })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
     };
     // update contact details
@@ -738,14 +749,7 @@ var Global = /** @class */ (function () {
     function Global() {
     }
     Global.BASE_USER_ENDPOINT = 'api/contact/';
-    Global.genders = [{
-            name: 'Male',
-            id: 0,
-        }, {
-            name: 'Female',
-            id: 1
-        }];
-    Global.technologies = ['JavaScript', 'SharePoint', 'C#'];
+    Global.PersonType = ['Supplier', 'Customer'];
     return Global;
 }());
 
@@ -813,7 +817,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Jayesh\project\contact-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\sunwing\contact-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })

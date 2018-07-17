@@ -6,7 +6,7 @@ namespace contact_app.Models
         public string FirstName { get; set; }
            public string LastName { get; set; }
      
-        public byte IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }
         public int PersonTypeId { get; set; }
 
         public virtual  Supplier Supplier { get; set; }

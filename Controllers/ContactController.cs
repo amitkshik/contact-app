@@ -6,6 +6,7 @@ using contact_app.Models;
 using contact_app.Models.Dto;
 using contact_app.Models.Enum;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace contact_app.Controllers
 {
@@ -31,7 +32,11 @@ namespace contact_app.Controllers
  public IEnumerable<PersonDto> GetAll()
         {
             // fetch all contact records
-            var people = _context.Person.ToList();
+            var people = _context.Person.Where(t => t.IsDeleted == false)
+            .Include(p => p.Customer)
+            .Include(p => p.Supplier)
+            .ToList();
+        
             var result = new List<PersonDto>();
          
             people.ForEach(t =>  {
@@ -40,10 +45,20 @@ namespace contact_app.Controllers
             Id = t.Id,
             FirstName = t.FirstName,
             LastName = t.LastName,
-            Telephone = t.Supplier.Telephone,
-            Birthday = t.Customer.Birthday,
-            Email = t.Customer.Email
+            
+            
+            PersonTypeId = t.PersonTypeId
             };
+
+            if(t.PersonTypeId == 0){
+             personDto.Birthday = t.Customer?.Birthday;
+             personDto.Email = t.Customer.Email;
+            }
+
+            if(t.PersonTypeId == 1){
+            personDto.Telephone = t.Supplier?.Telephone;
+            }
+
             result.Add(personDto);
             });
 
@@ -152,7 +167,7 @@ namespace contact_app.Controllers
             {
                 return NotFound();
             }
-            contact.IsDeleted = 1;
+            contact.IsDeleted = true;
             _context.Person.Update(contact);
             _context.SaveChanges();
             return Ok( new { message= "Contact is deleted successfully."});

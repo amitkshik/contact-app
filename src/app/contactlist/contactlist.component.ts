@@ -9,6 +9,12 @@ import { IContact } from '../model/contact';
 import { DBOperation } from '../shared/DBOperation';
 import { Global } from '../shared/Global';
 
+export  enum personTypes {
+  Supplier = 1,
+  Customer = 0
+
+}
+
 @Component({
   selector: 'app-contactlist',
   templateUrl: './contactlist.component.html',
@@ -21,9 +27,10 @@ export class ContactlistComponent implements OnInit {
   dbops: DBOperation;
   modalTitle: string;
   modalBtnTitle: string;
+  personTypes: typeof personTypes = personTypes;
 
   // set columns that will need to show in listing table
-  displayedColumns = ['name', 'email', 'gender', 'birth', 'techno', 'message', 'action'];
+  displayedColumns = ['name', 'email', 'personType', 'birth', 'telephone', 'action'];
   // setting up datasource for material table
   dataSource = new MatTableDataSource<IContact>();
 
